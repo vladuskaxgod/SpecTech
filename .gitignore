@@ -1,0 +1,12 @@
+.vs/
+obj/
+.idea/
+bin/
+packages/
+GPUCache/
+DawnCache/
+debug.log
+Web Data
+Web Data-journal
+.DS_Store
+node_modules/
