@@ -1,4 +1,4 @@
-﻿namespace BLL;
+﻿namespace BLL.Entities;
 
 public class MessageEntity
 {
