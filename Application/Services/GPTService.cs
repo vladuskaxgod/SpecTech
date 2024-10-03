@@ -1,11 +1,9 @@
-﻿using System;
-using System.IO;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Text;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 
-namespace ConsoleApp1;
+namespace Application.Services;
 
 public class GPTService
 {
@@ -38,7 +36,6 @@ public class GPTService
 
             if (response.IsSuccessStatusCode)
             {
-                // Чтение ответа
                 var responseBody = await response.Content.ReadAsStringAsync();
                 return JObject.Parse(responseBody)["iamToken"].ToString();
             }

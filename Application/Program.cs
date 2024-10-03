@@ -1,12 +1,12 @@
 ﻿using System.Net.Http.Headers;
 using System.Text;
-using BLL;
-using Microsoft.EntityFrameworkCore;
+using Application.Services;
+using Infrastructure.Data;
 using Newtonsoft.Json.Linq;
 using TL;
-using Microsoft.Extensions.Configuration;
 
-namespace ConsoleApp1;
+
+namespace Application;
 
 class Program
 {
@@ -29,13 +29,13 @@ class Program
         async Task DoLogin(string loginInfo) // (add this method to your code)
         {
             while (client.User == null)
-            switch (await client.Login(loginInfo)) // returns which config is needed to continue login
-            {
-                case "verification_code": Console.Write("Code: "); loginInfo = Console.ReadLine(); break;
-                case "name": loginInfo = "John Doe"; break;    // if sign-up is required (first/last_name)
-                case "password": loginInfo = "secret!"; break; // if user has enabled 2FA
-                default: loginInfo = null; break;
-            }
+                switch (await client.Login(loginInfo)) // returns which config is needed to continue login
+                {
+                    case "verification_code": Console.Write("Code: "); loginInfo = Console.ReadLine(); break;
+                    case "name": loginInfo = "John Doe"; break;    // if sign-up is required (first/last_name)
+                    case "password": loginInfo = "secret!"; break; // if user has enabled 2FA
+                    default: loginInfo = null; break;
+                }
             Console.WriteLine($"We are logged-in as {client.User} (id {client.User.id})");
         }
 
@@ -185,7 +185,7 @@ class Program
 
                     var splittedMessage = res.Split("\n").ToList();
 
-                    var entity = new BLL.MessageEntity()
+                    var entity = new BLL.Entities.MessageEntity()
                     {
                         SourceMessage = lastMsg,
                         TechnicType = splittedMessage.TryGet(0),

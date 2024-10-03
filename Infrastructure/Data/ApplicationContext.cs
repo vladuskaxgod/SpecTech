@@ -1,7 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using TL;
+﻿using BLL.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace BLL;
+
+namespace Infrastructure.Data;
 
 public class ApplicationContext : DbContext
 {

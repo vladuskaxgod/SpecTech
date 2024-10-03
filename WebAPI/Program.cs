@@ -1,5 +1,8 @@
-using BLL;
-using Microsoft.EntityFrameworkCore;
+using Application.Services;
+using BLL.Interfaces;
+using Infrastructure.Data;
+using Infrastructure.Repos;
+
 
 namespace WebAPI;
 
@@ -14,6 +17,8 @@ public class Program
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddScoped<IMessagesRepo, MessagesRepo>();
+        builder.Services.AddScoped<MessagesService>();
         builder.Services.AddSwaggerGen();
         builder.Services.AddControllers();
         builder.Services.AddDbContext<ApplicationContext>();

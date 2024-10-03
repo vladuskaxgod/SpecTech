@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp1;
+﻿namespace Application;
 
 public static class ListExtension
 {

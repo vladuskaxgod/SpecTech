@@ -1,6 +1,6 @@
-﻿namespace BLL;
+﻿namespace Infrastructure.Models;
 
-public class MessageEntity
+public class MessageModel
 {
     public long Id { get; set; }
     public string SourceMessage { get; set; }
