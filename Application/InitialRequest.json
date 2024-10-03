@@ -1,0 +1,18 @@
+{
+  "modelUri": "{modelUri}",
+  "completionOptions": {
+    "stream": false,
+    "temperature": "{temperature}",
+    "maxTokens": "{maxTokens}"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "text": "{systemPrompt}"
+    },
+    {
+      "role": "user",
+      "text": "{userPrompt}"
+    }
+  ]
+}
